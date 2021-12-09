@@ -714,6 +714,62 @@ const myBlocks = function () {
     </category>
     `;
 };
+
+const atr = function (){
+    return `
+    <category
+        name="ATR"
+        id="atr"
+        colour="#FF8C1A"
+        secondaryColour="#DB6E00"
+        >
+        <block type="moveforward" id="moveforward">
+        </block>
+        ${blockSeparator}
+        <block type="set_pin_mode" id="set_pin_mode">
+            <value name="SET_PIN_NUMBER">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="PIN_MODE">
+                <shadow type="text">
+                <field name="TEXT">OUTPUT</field>
+                </shadow>
+            </value>
+        </block>
+        ${blockSeparator}
+        <block type="write_digital_pin" id="write_digital_pin">
+            <value name="WRITE_DIGITAL_TO_PIN">
+                <shadow type="text">
+                    <field name="TEXT">high</field>
+                </shadow>
+            </value>
+            <value name="PIN_NUMBER">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        ${blockSeparator}
+        <block type="delay" id="delay">
+            <value name="DELAY_TIME">
+                <shadow type="math_number">
+                    <field name="NUM">100</field>
+                </shadow>
+            </value>
+        </block>
+        ${blockSeparator}
+        <block type="print_serial_monitor" id="print_serial_monitor">
+            <value name="SERIAL_MESSAGE">
+                <shadow type="text">
+                    <field name="TEXT">Hello</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+    `;
+}
 /* eslint-enable no-unused-vars */
 
 const xmlOpen = '<xml style="display: none">';
@@ -760,8 +816,9 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     const controlXML = moveCategory('control') || control(isInitialSetup, isStage, targetId);
     const sensingXML = moveCategory('sensing') || sensing(isInitialSetup, isStage, targetId);
     const operatorsXML = moveCategory('operators') || operators(isInitialSetup, isStage, targetId);
-    const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId);
-    const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId);
+    //const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId);
+    //const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId);
+    const atrXML = moveCategory('atr') || atr(isInitialSetup, isStage, targetId);
 
     const everything = [
         xmlOpen,
@@ -772,8 +829,9 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
         controlXML, gap,
         sensingXML, gap,
         operatorsXML, gap,
-        variablesXML, gap,
-        myBlocksXML
+        //variablesXML, gap,
+        //myBlocksXML, gap,
+        atrXML
     ];
 
     for (const extensionCategory of categoriesXML) {

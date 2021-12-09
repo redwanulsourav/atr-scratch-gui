@@ -116,6 +116,7 @@ export default function (vm) {
     const spriteMenu = function () {
         const sprites = [];
         for (const targetId in vm.runtime.targets) {
+            console.log(targetId)
             if (!vm.runtime.targets.hasOwnProperty(targetId)) continue;
             if (vm.runtime.targets[targetId].isOriginal) {
                 if (!vm.runtime.targets[targetId].isStage) {
