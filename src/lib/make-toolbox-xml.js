@@ -712,6 +712,7 @@ const myBlocks = function () {
         secondaryColour="#FF4D6A"
         custom="PROCEDURE">
     </category>
+    ${categorySeparator}
     `;
 };
 
@@ -723,51 +724,27 @@ const atr = function (){
         colour="#FF8C1A"
         secondaryColour="#DB6E00"
         >
-        <block type="moveforward" id="moveforward">
-        </block>
-        ${blockSeparator}
-        <block type="set_pin_mode" id="set_pin_mode">
-            <value name="SET_PIN_NUMBER">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-            <value name="PIN_MODE">
+        <block type="move_gear_motor" id="move_gear_motor">
+            <value name="GEAR_MOTOR_ID">
                 <shadow type="text">
-                <field name="TEXT">OUTPUT</field>
+                    <field name="TEXT">1</field>
                 </shadow>
             </value>
-        </block>
-        ${blockSeparator}
-        <block type="write_digital_pin" id="write_digital_pin">
-            <value name="WRITE_DIGITAL_TO_PIN">
+            <value name="GEAR_MOTOR_DIRECTION">
                 <shadow type="text">
-                    <field name="TEXT">high</field>
+                    <field name="TEXT">forward</field>
                 </shadow>
             </value>
-            <value name="PIN_NUMBER">
+            <value name="WAIT_TIME">
                 <shadow type="math_number">
-                    <field name="NUM">10</field>
+                    <field name="NUM">1000</field>
                 </shadow>
             </value>
         </block>
-        ${blockSeparator}
-        <block type="delay" id="delay">
-            <value name="DELAY_TIME">
-                <shadow type="math_number">
-                    <field name="NUM">100</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="print_serial_monitor" id="print_serial_monitor">
-            <value name="SERIAL_MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">Hello</field>
-                </shadow>
-            </value>
-        </block>
+        ${categorySeparator}
     </category>
+    
+
     `;
 }
 /* eslint-enable no-unused-vars */
