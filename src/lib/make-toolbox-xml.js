@@ -723,47 +723,14 @@ const atr = function (){
         colour="#FF8C1A"
         secondaryColour="#DB6E00"
         >
-        <block type="moveforward" id="moveforward">
+        <block type="read_orientation_wearable" id="read_orientation_wearable">
         </block>
-        ${blockSeparator}
-        <block type="set_pin_mode" id="set_pin_mode">
-            <value name="SET_PIN_NUMBER">
+        <block type="read_heart_beat_wearable" id="read_heart_beat_wearable">
+        </block>
+        <block type="move_gear_motor" id="move_gear_motor">
+            <value name="WAIT_TIME">
                 <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-            <value name="PIN_MODE">
-                <shadow type="text">
-                <field name="TEXT">OUTPUT</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="write_digital_pin" id="write_digital_pin">
-            <value name="WRITE_DIGITAL_TO_PIN">
-                <shadow type="text">
-                    <field name="TEXT">high</field>
-                </shadow>
-            </value>
-            <value name="PIN_NUMBER">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="delay" id="delay">
-            <value name="DELAY_TIME">
-                <shadow type="math_number">
-                    <field name="NUM">100</field>
-                </shadow>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="print_serial_monitor" id="print_serial_monitor">
-            <value name="SERIAL_MESSAGE">
-                <shadow type="text">
-                    <field name="TEXT">Hello</field>
+                    <field name="NUM">1000</field>
                 </shadow>
             </value>
         </block>
